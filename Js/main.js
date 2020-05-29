@@ -42,6 +42,7 @@ function display(list, items, rows_per_page, page) {
         item_elmment.classList.add('elm')
         item_elmment.innerText = elm
         list.appendChild(item_elmment)
+
     }
 }
 
@@ -52,7 +53,6 @@ function pagination(items, list, rows, ) {
         let btns = padinationBtn(i, items)
         btns.classList.add("btns")
         list.appendChild(btns)
-
     }
 }
 
@@ -77,25 +77,18 @@ async function getCountry(names) {
     return res.json()
 }
 
-
 input.addEventListener("input", function (e) {
     let names = input.value
-    hide(namess)
-
+    // hide(names)
     getCountry(names).then(data => {
         newData = data.results
-
         let result = newData.map(a => a.name);
-        display(list, result, rows, currentPage)
-
+        if (names.length > 1) {
+            pagesNumbers.style.display = "none"
+            display(list, result, rows, currentPage)
+        } else {
+            pagesNumbers.style.display = "block"
+            display(list, items, rows, currentPage)
+        }
     })
 })
-
-
-function hide(names) {
-    if (names.length > 1) {
-        pagesNumbers.style.display = "none"
-    } else if (names.length < 1) {
-        pagesNumbers.style.display = "block"
-    }
-}
