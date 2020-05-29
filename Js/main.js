@@ -2,6 +2,7 @@ let input = document.querySelector(".nav__bar-input")
 let main = document.querySelector(".main")
 let list = document.querySelector(".list")
 let pagesNumbers = document.querySelector(".pagesnumbers")
+
 let currentPage = 1;
 let rows = 20;
 
@@ -17,11 +18,13 @@ for (let i = 1; i < 84; i++) {
     let index = i
     getPeople(index).then(data => {
         items.push(data.name)
-        console.log(data)
         display(list, items, rows, currentPage)
         pagination(items, pagesNumbers, rows)
+
+
     })
 }
+
 
 
 function display(list, items, rows_per_page, page) {
@@ -39,7 +42,6 @@ function display(list, items, rows_per_page, page) {
         item_elmment.classList.add('elm')
         item_elmment.innerText = elm
         list.appendChild(item_elmment)
-
     }
 }
 
@@ -70,14 +72,30 @@ function padinationBtn(page, items) {
     return btn
 }
 
+async function getCountry(names) {
+    let res = await fetch(`https://swapi.dev/api/people/?search=${names}`)
+    return res.json()
+}
 
-let amin = ["amin", "marwa", "nawal"]
-input.addEventListener("keyup", function (e) {
-    let target = e.target.value.toLowerCase()
 
-    let test = amin.filter(function (value) {
-        return (value.toLowerCase().includes(target));
+input.addEventListener("input", function (e) {
+    let names = input.value
+    hide(namess)
+
+    getCountry(names).then(data => {
+        newData = data.results
+
+        let result = newData.map(a => a.name);
+        display(list, result, rows, currentPage)
+
     })
-    console.log(test)
-
 })
+
+
+function hide(names) {
+    if (names.length > 1) {
+        pagesNumbers.style.display = "none"
+    } else if (names.length < 1) {
+        pagesNumbers.style.display = "block"
+    }
+}

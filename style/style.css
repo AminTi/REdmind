@@ -94,7 +94,7 @@ main {
   font-size: 18px;
   border: 2px solid #c9c4c4;
   background: lightblue;
-  margin: 5px;
+  margin: 1px;
   text-align: center;
   padding: 5px 5px;
   opacity: 70%;
@@ -142,5 +142,9 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.subwrapper {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
