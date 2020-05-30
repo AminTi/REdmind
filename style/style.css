@@ -32,12 +32,12 @@ body {
 
 .StarWars_Characters {
   color: #c0c022;
-  text-align: center;
   margin: 1%;
   background: black;
   border-radius: 10px;
   padding: 5px 5px;
   opacity: 75%;
+  text-align: center;
 }
 
 @media screen and (min-width: 650px) {
@@ -216,6 +216,7 @@ main {
   background: red;
   text-align: center;
   margin: 5px;
+  color: whitesmoke;
 }
 
 .charachers {
@@ -228,5 +229,6 @@ main {
   color: red;
   font-weight: bold;
   font-size: 40px;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */

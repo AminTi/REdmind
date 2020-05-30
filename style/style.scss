@@ -31,13 +31,12 @@ body {
 
 .StarWars_Characters {
     color: rgb(192, 192, 34);
-    text-align: center;
     margin: 1%;
     background: black;
     border-radius: 10px;
     padding: 5px 5px;
     opacity: 75%;
-
+    text-align: center;
 
     @media screen and (min-width: 650px) {
         font-size: 50px;
@@ -46,9 +45,6 @@ body {
         -webkit-text-stroke-width: 0.5px;
         -webkit-text-stroke-color: black;
     }
-
-
-
 }
 
 .nav__bar-img {
@@ -58,7 +54,6 @@ body {
 }
 
 .nav__bar-input {
-
     width: 300px;
     border-radius: 5px;
     margin: 10px;
@@ -85,7 +80,6 @@ main {
     justify-content: center;
     align-items: center;
     // position: absolute;
-
 }
 
 .list {
@@ -103,8 +97,6 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     padding: 100px 50px;
-
-
 }
 
 
@@ -199,6 +191,7 @@ main {
     background: red;
     text-align: center;
     margin: 5px;
+    color: whitesmoke;
 }
 
 .charachers {
@@ -211,4 +204,5 @@ main {
     color: red;
     font-weight: bold;
     font-size: 40px;
+    font-weight: bold;
 }
