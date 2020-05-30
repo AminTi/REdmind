@@ -10,8 +10,8 @@
 body {
   font-family: Montserrat;
   height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0.2))), url("/images/at-at-4868964_1280.jpg");
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 100%), url("/images/at-at-4868964_1280.jpg");
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.75)), color-stop(55%, rgba(0, 0, 0, 0.2))), url("/images/at-at-4868964_1280.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 55%), url("/images/at-at-4868964_1280.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -156,7 +156,7 @@ main {
   -webkit-box-shadow: 1px 4px #c0c022;
           box-shadow: 1px 4px #c0c022;
   background: black;
-  opacity: 85%;
+  opacity: 80%;
   -webkit-transition: 1s;
   transition: 1s;
 }

@@ -9,7 +9,7 @@ body {
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
     font-family: Montserrat;
     height: 100vh;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 100%), url("/images/at-at-4868964_1280.jpg");
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 55%), url("/images/at-at-4868964_1280.jpg");
     background-size: cover;
     background-position: center center;
 }
@@ -128,7 +128,7 @@ main {
     color: rgb(192, 192, 34);
     box-shadow: 1px 4px rgb(192, 192, 34);
     background: black;
-    opacity: 85%;
+    opacity: 80%;
     transition: 1s;
 }
 
@@ -143,7 +143,6 @@ main {
     outline: none;
     border: 1px solid rgb(192, 192, 34);
     opacity: 80%;
-
 }
 
 
