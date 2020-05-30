@@ -156,7 +156,7 @@ main {
   -webkit-box-shadow: 1px 4px #c0c022;
           box-shadow: 1px 4px #c0c022;
   background: black;
-  opacity: 80%;
+  opacity: 90%;
   -webkit-transition: 1s;
   transition: 1s;
 }
@@ -171,7 +171,7 @@ main {
   margin: 2px;
   outline: none;
   border: 1px solid #c0c022;
-  opacity: 80%;
+  opacity: 90%;
 }
 
 .pagesnumbers {
