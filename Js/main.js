@@ -5,7 +5,7 @@ let pagesNumbers = document.querySelector(".pagesnumbers")
 let popUp_list = document.querySelector(".popUp_list")
 
 let currentPage = 1;
-let rows = 30;
+let rows = 10;
 
 async function getPeople(i) {
     let res = await fetch(`https://swapi.dev/api/people/${i}/`)
@@ -47,6 +47,7 @@ function pagination(items, list, rows, ) {
         let btns = padinationBtn(i, items)
         btns.classList.add("btns")
         list.appendChild(btns)
+
     }
 }
 
@@ -71,7 +72,6 @@ async function getCountry(names) {
 }
 
 input.addEventListener("input", function (e) {
-
     let names = e.target.value
     getCountry(names).then(data => {
         newData = data.results
@@ -81,6 +81,7 @@ input.addEventListener("input", function (e) {
             pagesNumbers.style.display = "none"
             display(list, result, rows, currentPage)
             popUp(data)
+            notFound(result)
 
         } else {
             pagesNumbers.style.display = "block"
@@ -109,6 +110,7 @@ function popUp(data) {
             <span class="charachers"> eye_color: ${arr[i].eye_color}</span>
             <span class="charachers"> skin_color: ${arr[i].skin_color}</span>
             </div>`
+
             popUpClose()
         })
     }
@@ -122,6 +124,17 @@ function popUpClose() {
         list.style.display = "block"
         list.style.display = "flex"
         pagesNumbers.style.display = "block"
-
     })
+}
+
+
+function notFound(result) {
+    if (result.length == 0) {
+        popUp_list.innerHTML = ""
+        popUp_list.innerHTML = `<h2 class="notfound"> Not Found</h2>`
+        notfound.style.display = "none"
+    } else {
+        let notfound = document.querySelector(".notfound")
+        notfound.style.display = "none"
+    }
 }

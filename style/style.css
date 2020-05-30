@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 * {
   margin: 0px;
   padding: 0px;
@@ -7,6 +8,7 @@
 }
 
 body {
+  font-family: Montserrat;
   height: 100vh;
   background-image: url("/images/at-at-4868964_1280.jpg");
   background-size: cover;
@@ -28,6 +30,26 @@ body {
   opacity: 70%;
 }
 
+.StarWars_Characters {
+  color: #c0c022;
+  text-align: center;
+  margin: 1%;
+  background: black;
+  border-radius: 10px;
+  padding: 5px 5px;
+  opacity: 75%;
+}
+
+@media screen and (min-width: 650px) {
+  .StarWars_Characters {
+    font-size: 50px;
+    opacity: unset;
+    background: unset;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+  }
+}
+
 .nav__bar-img {
   width: 100px;
   height: 50px;
@@ -41,17 +63,19 @@ body {
   outline: none;
   background: lightblue;
   color: blue;
+  font-size: 16px;
 }
 
 .nav__bar-input:hover {
-  border: 1px solid greenyellow;
-  color: greenyellow;
-  -webkit-box-shadow: 1px 4px greenyellow;
-          box-shadow: 1px 4px greenyellow;
+  border: 1px solid #c0c022;
+  color: #c0c022;
+  -webkit-box-shadow: 1px 4px #c0c022;
+          box-shadow: 1px 4px #c0c022;
   background: black;
   opacity: 70%;
   -webkit-transition: 2s;
   transition: 2s;
+  font-size: 16px;
 }
 
 main {
@@ -69,7 +93,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
 }
 
 .list {
@@ -85,7 +108,7 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 100px 50px;
+  padding: 20px 0px;
   position: relative;
 }
 
@@ -113,41 +136,33 @@ main {
   margin: 1px;
   text-align: center;
   padding: 5px 5px;
-  opacity: 70%;
+  opacity: 80%;
   width: 250px;
   min-width: 250px;
 }
 
 .elm:hover {
-  border: 1px solid greenyellow;
-  color: greenyellow;
-  -webkit-box-shadow: 1px 4px greenyellow;
-          box-shadow: 1px 4px greenyellow;
-  background: #353232;
-  opacity: 80%;
+  border: 1px solid #c0c022;
+  color: #c0c022;
+  -webkit-box-shadow: 1px 4px #c0c022;
+          box-shadow: 1px 4px #c0c022;
+  background: black;
+  opacity: 85%;
   -webkit-transition: 1s;
   transition: 1s;
 }
 
 .btns {
   font-size: 20px;
-  color: blue;
-  background: lightblue;
+  color: #c0c022;
+  background: black;
   font-weight: bold;
   padding: 5px 5px;
-  opacity: 70%;
   border: 1px solid white;
   margin: 2px;
   outline: none;
-}
-
-.btns:hover {
-  font-size: 20px;
-  color: greenyellow;
-  background: #353232;
-  font-weight: bolder;
-  -webkit-transition: 1s;
-  transition: 1s;
+  border: 1px solid #c0c022;
+  opacity: 80%;
 }
 
 .pagesnumbers {
@@ -157,6 +172,15 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media screen and (min-width: 550px) {
+  .pagesnumbers {
+    float: left;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 10%;
+  }
 }
 
 .modal {
@@ -200,8 +224,9 @@ main {
   word-spacing: 2px;
 }
 
-.notfount {
+.notfound {
   color: red;
   font-weight: bold;
+  font-size: 40px;
 }
 /*# sourceMappingURL=style.css.map */
