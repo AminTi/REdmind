@@ -112,6 +112,12 @@ main {
   position: relative;
 }
 
+@media screen and (min-width: 750px) {
+  .list {
+    padding: 30px 30px;
+  }
+}
+
 .popUp_list {
   display: -webkit-box;
   display: -ms-flexbox;

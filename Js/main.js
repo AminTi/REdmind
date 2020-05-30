@@ -131,7 +131,7 @@ function popUpClose() {
 function notFound(result) {
     if (result.length == 0) {
         popUp_list.innerHTML = ""
-        popUp_list.innerHTML = `<h2 class="notfound"> Not Found</h2>`
+        popUp_list.innerHTML = `<h2 class="notfound">Nothing Find</h2>`
         notfound.style.display = "none"
     } else {
         let notfound = document.querySelector(".notfound")
