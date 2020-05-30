@@ -5,8 +5,7 @@ let pagesNumbers = document.querySelector(".pagesnumbers")
 let popUp_list = document.querySelector(".popUp_list")
 
 let currentPage = 1;
-
-let rows = 45;
+let rows = 30;
 
 async function getPeople(i) {
     let res = await fetch(`https://swapi.dev/api/people/${i}/`)
@@ -14,20 +13,15 @@ async function getPeople(i) {
 }
 
 let items = []
-let count = 0
 for (let i = 1; i < 84; i++) {
     let index = i
     getPeople(index).then(data => {
-
         items.push(data.name)
         display(list, items, rows, currentPage)
         pagination(items, pagesNumbers, rows)
-        ex(data)
-
+        popUp(data)
     })
 }
-
-
 
 function display(list, items, rows_per_page, page) {
     list.innerHTML = ""
@@ -36,16 +30,13 @@ function display(list, items, rows_per_page, page) {
     let start = rows_per_page * page
     let end = start + rows_per_page
     let paginatedItems = items.slice(start, end)
-    paginatedItems
 
     for (let i = 0; i < paginatedItems.length; i++) {
-
         const elm = paginatedItems[i];
         let item_elmment = document.createElement('div')
         item_elmment.classList.add('elm')
         item_elmment.innerText = elm
         list.appendChild(item_elmment)
-
     }
 }
 
@@ -62,12 +53,11 @@ function pagination(items, list, rows, ) {
 function padinationBtn(page, items) {
     let btn = document.createElement("button")
     btn.innerText = page
-
     if (currentPage == page)
         btn.classList.add('active')
     btn.addEventListener("click", function (e) {
-        currentPage = page
-        display(list, items, rows, currentPage)
+        page = e.target.innerHTML
+        display(list, items, rows, page)
         let current_btn = document.querySelector(".pagesnumbers button.active")
         current_btn.classList.remove("active")
         btn.classList.add("active")
@@ -81,32 +71,30 @@ async function getCountry(names) {
 }
 
 input.addEventListener("input", function (e) {
-    let names = input.value
-    // hide(names)
+
+    let names = e.target.value
     getCountry(names).then(data => {
         newData = data.results
         let result = newData.map(a => a.name);
-        if (names.length > 1) {
+
+        if (names.length > 0) {
             pagesNumbers.style.display = "none"
             display(list, result, rows, currentPage)
-            ex(data)
+            popUp(data)
 
         } else {
             pagesNumbers.style.display = "block"
             display(list, items, rows, currentPage)
-            ex(data)
-
-
+            popUp(data)
         }
     })
 })
 
 let arr = []
 
-function ex(data) {
+function popUp(data) {
     let elm = Array.from(document.querySelectorAll(".elm"))
     arr.push(data)
-
     for (let i = 0; i < elm.length; i++) {
         const am = elm[i];
         am.addEventListener("click", function (e) {
@@ -121,13 +109,12 @@ function ex(data) {
             <span class="charachers"> eye_color: ${arr[i].eye_color}</span>
             <span class="charachers"> skin_color: ${arr[i].skin_color}</span>
             </div>`
-            popUp()
+            popUpClose()
         })
-
     }
 }
 
-function popUp() {
+function popUpClose() {
     let btnModal = document.querySelector(".btnModal")
     let modal = document.querySelector(".modal")
     btnModal.addEventListener("click", function (e) {
