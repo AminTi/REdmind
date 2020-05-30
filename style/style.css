@@ -89,6 +89,22 @@ main {
   position: relative;
 }
 
+.popUp_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 100px 50px;
+}
+
 .elm {
   color: blue;
   font-size: 18px;
@@ -100,7 +116,6 @@ main {
   opacity: 70%;
   width: 250px;
   min-width: 250px;
-  position: relative;
 }
 
 .elm:hover {
@@ -109,7 +124,7 @@ main {
   -webkit-box-shadow: 1px 4px greenyellow;
           box-shadow: 1px 4px greenyellow;
   background: #353232;
-  opacity: 70%;
+  opacity: 80%;
   -webkit-transition: 1s;
   transition: 1s;
 }
@@ -144,7 +159,44 @@ main {
           justify-content: center;
 }
 
-.subwrapper {
-  display: none;
+.modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  background-color: black;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  min-width: 40%;
+  min-height: 300px;
+  opacity: 70%;
+}
+
+.btnModal {
+  color: blue;
+  background: lightblue;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  outline: none;
+}
+
+.charachersName {
+  font-size: 18px;
+  background: red;
+  text-align: center;
+  margin: 5px;
+}
+
+.charachers {
+  color: greenyellow;
+  font-size: 16px;
+  word-spacing: 2px;
 }
 /*# sourceMappingURL=style.css.map */

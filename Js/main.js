@@ -2,9 +2,11 @@ let input = document.querySelector(".nav__bar-input")
 let main = document.querySelector(".main")
 let list = document.querySelector(".list")
 let pagesNumbers = document.querySelector(".pagesnumbers")
+let popUp_list = document.querySelector(".popUp_list")
 
 let currentPage = 1;
-let rows = 20;
+
+let rows = 45;
 
 async function getPeople(i) {
     let res = await fetch(`https://swapi.dev/api/people/${i}/`)
@@ -12,15 +14,15 @@ async function getPeople(i) {
 }
 
 let items = []
-
-
+let count = 0
 for (let i = 1; i < 84; i++) {
     let index = i
     getPeople(index).then(data => {
+
         items.push(data.name)
         display(list, items, rows, currentPage)
         pagination(items, pagesNumbers, rows)
-
+        ex(data)
 
     })
 }
@@ -37,6 +39,7 @@ function display(list, items, rows_per_page, page) {
     paginatedItems
 
     for (let i = 0; i < paginatedItems.length; i++) {
+
         const elm = paginatedItems[i];
         let item_elmment = document.createElement('div')
         item_elmment.classList.add('elm')
@@ -86,9 +89,52 @@ input.addEventListener("input", function (e) {
         if (names.length > 1) {
             pagesNumbers.style.display = "none"
             display(list, result, rows, currentPage)
+            ex(data)
+
         } else {
             pagesNumbers.style.display = "block"
             display(list, items, rows, currentPage)
+            ex(data)
+
+
         }
     })
 })
+
+let arr = []
+
+function ex(data) {
+    let elm = Array.from(document.querySelectorAll(".elm"))
+    arr.push(data)
+
+    for (let i = 0; i < elm.length; i++) {
+        const am = elm[i];
+        am.addEventListener("click", function (e) {
+            list.style.display = "none"
+            pagesNumbers.style.display = "none"
+            popUp_list.innerHTML = `<div class="modal"><button class="btnModal">X</button>
+            <h3 class="charachersName">${arr[i].name}</h3>
+            <span class="charachers"> Height: ${arr[i].height}</span>
+            <span class="charachers"> Mass: ${arr[i].mass}</span>
+            <span class="charachers"> Gender: ${arr[i].gender}</span>
+            span> class="charachers" birth_year: ${arr[i].birth_year}</span>
+            <span class="charachers"> eye_color: ${arr[i].eye_color}</span>
+            <span class="charachers"> skin_color: ${arr[i].skin_color}</span>
+            </div>`
+            popUp()
+        })
+
+    }
+}
+
+function popUp() {
+    let btnModal = document.querySelector(".btnModal")
+    let modal = document.querySelector(".modal")
+    btnModal.addEventListener("click", function (e) {
+        modal.style.display = "none"
+        list.style.display = "block"
+        list.style.display = "flex"
+        pagesNumbers.style.display = "block"
+
+    })
+}
