@@ -96,6 +96,7 @@ input.addEventListener("input", function (e) {
             pagesNumbers.style.display = "block"
             display(list, items, rows, currentPage)
             popUp()
+
         }
     })
 })

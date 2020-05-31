@@ -127,7 +127,7 @@ main {
 }
 
 .popUp_list {
-  margin: 0 auto;
+  margin: 10% auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,6 +140,12 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media screen and (min-width: 550px) {
+  .popUp_list {
+    margin: 5% auto;
+  }
 }
 
 .elm {

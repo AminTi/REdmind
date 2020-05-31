@@ -103,14 +103,17 @@ main {
 }
 
 .popUp_list {
-    margin: 0 auto;
+    margin: 10% auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    //padding: 100px 50px;
-}
 
+    //padding: 100px 50px;
+    @media screen and (min-width: 550px) {
+        margin: 5% auto;
+    }
+}
 
 .elm {
     color: blue;
