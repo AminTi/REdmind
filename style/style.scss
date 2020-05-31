@@ -82,6 +82,11 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    // position: absolute;
+    @media screen and (min-width: 1600px) {
+        padding: 100px 100px;
+    }
 }
 
 .list {
