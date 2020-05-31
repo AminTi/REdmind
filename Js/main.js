@@ -115,11 +115,12 @@ function popUp() {
                     <span class="charachers"> Height: ${newData[0].height}</span>
                     <span class="charachers"> Mass: ${newData[0].mass}</span>
                     <span class="charachers"> Gender: ${newData[0].gender}</span>
-                    span> class="charachers" birth_year: ${newData[0].birth_year}</span>
-                    <span class="charachers"> eye_color: ${newData[0].eye_color}</span>
-                    <span class="charachers"> skin_color: ${newData[0].skin_color}</span>
+                    <span class="charachers"> Birthyear: ${newData[0].birth_year}</span>
+                    <span class="charachers"> Eyecolor: ${newData[0].eye_color}</span>
+                    <span class="charachers"> Skincolor: ${newData[0].skin_color}</span>
                     </div>`
                 popUpClose()
+
             })
         }
     })

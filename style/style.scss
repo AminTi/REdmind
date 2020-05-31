@@ -169,15 +169,19 @@ main {
 .modal {
     display: flex;
     flex-direction: column;
-
     position: relative;
     background-color: black;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    min-width: 40%;
+    width: 90%;
+    min-width: 90%;
     min-height: 300px;
     opacity: 80%;
+
+    @media screen and (min-width: 550px) {
+        min-width: 400px;
+    }
 
 }
 
