@@ -127,6 +127,7 @@ main {
 }
 
 .popUp_list {
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,7 +140,6 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 100px 50px;
 }
 
 .elm {
@@ -209,7 +209,6 @@ main {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background-color: black;
-  margin: auto;
   padding: 10px;
   border: 1px solid #888;
   min-height: 300px;

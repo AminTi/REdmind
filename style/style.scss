@@ -103,11 +103,12 @@ main {
 }
 
 .popUp_list {
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 100px 50px;
+    //padding: 100px 50px;
 }
 
 
@@ -178,7 +179,7 @@ main {
     justify-content: space-around;
     // position: relative;
     background-color: black;
-    margin: auto;
+
     padding: 10px;
     border: 1px solid #888;
 
