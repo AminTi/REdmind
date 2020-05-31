@@ -7,21 +7,28 @@ let popUp_list = document.querySelector(".popUp_list")
 let currentPage = 1;
 let rows = 10;
 
-async function getPeople(i) {
-    let res = await fetch(`https://swapi.dev/api/people/${i}/`)
-    return res.json()
+async function getPeople() {
+    const urls = []
+    const names = []
+    for (let i = 1; i <= 9; i++) {
+        let url = `http://swapi.dev/api/people/?page=${i}`
+        urls.push(url)
+    }
+    const arrayOfPromises = urls.map(url => fetch(url))
+    for await (const res of arrayOfPromises) {
+        const data = await res.json()
+        data.results.map(item => names.push(item.name))
+    }
+    return names
 }
 
-let items = []
-for (let i = 1; i < 84; i++) {
-    let index = i
-    getPeople(index).then(data => {
-        items.push(data.name)
-        display(list, items, rows, currentPage)
-        pagination(items, pagesNumbers, rows)
-        popUp(data)
-    })
-}
+getPeople().then(data => {
+    // need show spinner amin UX??
+    display(list, data, rows, currentPage)
+    pagination(data, pagesNumbers, rows)
+    popUp()
+})
+
 
 function display(list, items, rows_per_page, page) {
     list.innerHTML = ""
@@ -47,7 +54,6 @@ function pagination(items, list, rows, ) {
         let btns = padinationBtn(i, items)
         btns.classList.add("btns")
         list.appendChild(btns)
-
     }
 }
 
@@ -72,6 +78,7 @@ async function getCountry(names) {
 }
 
 input.addEventListener("input", function (e) {
+
     let names = e.target.value
     getCountry(names).then(data => {
         newData = data.results
@@ -80,50 +87,54 @@ input.addEventListener("input", function (e) {
         if (names.length > 0) {
             pagesNumbers.style.display = "none"
             display(list, result, rows, currentPage)
-            popUp(data)
+            popUp()
             notFound(result)
+
 
         } else {
             pagesNumbers.style.display = "block"
             display(list, items, rows, currentPage)
-            popUp(data)
+            popUp()
         }
     })
 })
 
+
 let arr = []
 
-function popUp(data) {
-    let elm = Array.from(document.querySelectorAll(".elm"))
-    arr.push(data)
-    for (let i = 0; i < elm.length; i++) {
-        const am = elm[i];
-        am.addEventListener("click", function (e) {
-            list.style.display = "none"
-            pagesNumbers.style.display = "none"
-            popUp_list.innerHTML = `<div class="modal"><button class="btnModal">X</button>
-            <h3 class="charachersName">${arr[i].name}</h3>
-            <span class="charachers"> Height: ${arr[i].height}</span>
-            <span class="charachers"> Mass: ${arr[i].mass}</span>
-            <span class="charachers"> Gender: ${arr[i].gender}</span>
-            span> class="charachers" birth_year: ${arr[i].birth_year}</span>
-            <span class="charachers"> eye_color: ${arr[i].eye_color}</span>
-            <span class="charachers"> skin_color: ${arr[i].skin_color}</span>
-            </div>`
-
-            popUpClose()
-        })
-    }
+function popUp() {
+    list.addEventListener('click', e => {
+        if (e.target.className == 'elm') {
+            getCountry(e.target.textContent).then(data => {
+                newData = data.results
+                list.style.display = "none"
+                pagesNumbers.style.display = "none"
+                input.style.display = "none"
+                popUp_list.innerHTML = `<div class="modal"><button class="btnModal">X</button>
+                    <h3 class="charachersName">${newData[0].name}</h3>
+                    <span class="charachers"> Height: ${newData[0].height}</span>
+                    <span class="charachers"> Mass: ${newData[0].mass}</span>
+                    <span class="charachers"> Gender: ${newData[0].gender}</span>
+                    span> class="charachers" birth_year: ${newData[0].birth_year}</span>
+                    <span class="charachers"> eye_color: ${newData[0].eye_color}</span>
+                    <span class="charachers"> skin_color: ${newData[0].skin_color}</span>
+                    </div>`
+                popUpClose()
+            })
+        }
+    })
 }
 
 function popUpClose() {
     let btnModal = document.querySelector(".btnModal")
     let modal = document.querySelector(".modal")
     btnModal.addEventListener("click", function (e) {
+        input.style.display = "block"
         modal.style.display = "none"
         list.style.display = "block"
         list.style.display = "flex"
         pagesNumbers.style.display = "block"
+
     })
 }
 
@@ -131,7 +142,7 @@ function popUpClose() {
 function notFound(result) {
     if (result.length == 0) {
         popUp_list.innerHTML = ""
-        popUp_list.innerHTML = `<h2 class="notfound">Nothing Find</h2>`
+        popUp_list.innerHTML = `<h2 class="notfound">Nothing Found</h2>`
         notfound.style.display = "none"
     } else {
         let notfound = document.querySelector(".notfound")
