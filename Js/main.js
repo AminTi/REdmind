@@ -11,7 +11,7 @@ async function getPeople() {
     const urls = []
     const names = []
     for (let i = 1; i <= 9; i++) {
-        let url = `http://swapi.dev/api/people/?page=${i}`
+        let url = `https://swapi.dev/api/people/?page=${i}`
         urls.push(url)
     }
     const arrayOfPromises = urls.map(url => fetch(url))
