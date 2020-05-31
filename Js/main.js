@@ -3,6 +3,7 @@ let main = document.querySelector(".main")
 let list = document.querySelector(".list")
 let pagesNumbers = document.querySelector(".pagesnumbers")
 let popUp_list = document.querySelector(".popUp_list")
+let StarWars_Characters_results = document.querySelector(".StarWars_Characters_results")
 
 let currentPage = 1;
 let rows = 10;
@@ -110,14 +111,15 @@ function popUp() {
                 list.style.display = "none"
                 pagesNumbers.style.display = "none"
                 input.style.display = "none"
+
                 popUp_list.innerHTML = `<div class="modal"><button class="btnModal">X</button>
                     <h3 class="charachersName">${newData[0].name}</h3>
-                    <span class="charachers"> Height: ${newData[0].height}</span>
-                    <span class="charachers"> Mass: ${newData[0].mass}</span>
-                    <span class="charachers"> Gender: ${newData[0].gender}</span>
-                    <span class="charachers"> Birthyear: ${newData[0].birth_year}</span>
-                    <span class="charachers"> Eyecolor: ${newData[0].eye_color}</span>
-                    <span class="charachers"> Skincolor: ${newData[0].skin_color}</span>
+                    <span class="charachers"> <span class="chractersTitels"> Height</span>:    ${newData[0].height}</span>
+                    <span class="charachers"> <span class="chractersTitels"> Mass</span>:       ${newData[0].mass}  </span>
+                    <span class="charachers"> <span class="chractersTitels"> Gender</span>:      ${newData[0].gender}</span>
+                    <span class="charachers"> <span class="chractersTitels"> Birthyear</span>:${newData[0].birth_year}</span>
+                    <span class="charachers"> <span class="chractersTitels"> Eyecolor</span>: ${newData[0].eye_color}</span>
+                    <span class="charachers"> <span class="chractersTitels"> Skincolor</span>: ${newData[0].skin_color}</span>
                     </div>`
                 popUpClose()
 
@@ -135,6 +137,7 @@ function popUpClose() {
         list.style.display = "block"
         list.style.display = "flex"
         pagesNumbers.style.display = "block"
+
 
     })
 }

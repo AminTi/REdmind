@@ -192,6 +192,7 @@ main {
 }
 
 .modal {
+  width: 290px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -199,13 +200,12 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: relative;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   background-color: black;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 90%;
-  min-width: 90%;
   min-height: 300px;
   opacity: 80%;
 }
@@ -248,5 +248,13 @@ main {
   background: black;
   padding: 50px 20px;
   display: inline;
+  opacity: 80%;
+}
+
+.chractersTitels {
+  font-size: 16px;
+  text-align: center;
+  margin: 10px;
+  color: whitesmoke;
 }
 /*# sourceMappingURL=style.css.map */

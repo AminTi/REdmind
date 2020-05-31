@@ -167,15 +167,17 @@ main {
 
 
 .modal {
+
+    width: 290px;
     display: flex;
     flex-direction: column;
-    position: relative;
+    justify-content: space-around;
+    // position: relative;
     background-color: black;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 90%;
-    min-width: 90%;
+
     min-height: 300px;
     opacity: 80%;
 
@@ -200,7 +202,9 @@ main {
     background: red;
     text-align: center;
     margin: 5px;
+
     color: whitesmoke;
+
 }
 
 .charachers {
@@ -217,4 +221,14 @@ main {
     background: black;
     padding: 50px 20px;
     display: inline;
+    opacity: 80%;
+}
+
+.chractersTitels {
+    font-size: 16px;
+    // background: red;
+    text-align: center;
+    margin: 10px;
+    color: whitesmoke;
+
 }
